@@ -1,0 +1,70 @@
+<head>
+
+<meta charset="UTF-8">
+<title>Request Info</title>
+<link rel="stylesheet" type="text/css" href="exampleStyle.css">
+</head>
+<body>
+
+<ul class="menu">
+    <li class = "menu"><a href="index.html">Home Page</a></li>
+    <li class = "menu"><a href="about.html">About</a></li>
+    <li class = "menu"><a href="tours.html">Tours</a></li>
+    <li class = "menu"><a class="active" href="request.html">Request Info</a></li>
+</ul>
+<br><br>
+<h1>Request Information</h1>
+
+<p>If you would like to get more information about taking one of these trips, fill out the form below and press submit.</p>
+
+<!-- Name text field -->
+<form name="validation" onsubmit="return checkbae()">
+    Name:<br>
+    <input type="text" name="name" required>
+    <br>
+    Email:<br>
+    <input type="text" name="emailcheck" required>
+    <br>
+    <br>
+	<select>
+      <option value="See Israel">See Israel</option>
+      <option value="See Holy Lands">See Holy Lands</option>
+      <option value="See Museums">See Museums</option>
+    </select>
+    <br><br>
+    <input id="submitbutton" type="submit" value="Submit">
+ </form>
+
+<!-- email text field -->
+<script>
+var testresults
+function checkemail(){
+var str=document.validation.emailcheck.value
+var filter=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+if (filter.test(str)) {
+    alert("Thank you");
+	testresults=true
+} else{
+    alert("Please input a valid email address!")
+    testresults=false
+}
+return (testresults)
+}
+
+function checkbae(){
+if (document.layers||document.getElementById||document.all) {
+return checkemail()
+} else {
+    return true
+    }
+}
+</script>
+
+
+
+
+</body>
+<!-- Common Footer for all pages: NOTE THE HREF -->
+<footer>Contact North Travels at <a href="mailto:info@northtravels.com">info@northtravels.com</a></footer>
+</html>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="exampleStyle.css">
+<title>Examples</title>
+</head>
+<body>
+
+<!-- Page Titles: Add these to the appropriate page in the <head> section
+<title>Home Page</title>
+<title>About</title>
+<title>Tours</title>
+<title>Request Info</title>
+-->
+
+<!-- Page Headers should be added at the top of each page -->
+<h1>Home Page</h1>
+<h1>About</h1>
+<h1>Tours</h1>
+<h1>Request Info</h1>
+
+<!-- Menu html (all pages) BE CAREFUL TO EDIT THE LINK hrefs!!!-->
+<ul class="menu">
+    <li class = "menu"><a href="index.html">Home Page</a></li>
+    <li class = "menu"><a href="about.html">About</a></li>
+    <li class = "menu"><a class="active" href="tours.html">Tours</a></li>
+    <li class = "menu"><a href="request.html">Request Info</a></li>
+</ul>
+<br><br>
+<!-- THE FOLLOWING MATERIAL APPLIES ONLY TO INDIVIDUAL PAGES -->
+
+<!-- Home Page Stuff: Give the header, a list, short description, and images -->
+<H2>HOMEPAGE MATERIAL STARTS HERE</H2>
+<h3>Available Tours and Dates</h3>
+    <ul>
+      <li>See Irael - April 15-23<br />    <!-- Might want to think of other ways to describe -->
+      make a 9 day trip to Israel. </li>
+      <li>See Holy Lands - June 1-22<br />
+     make a 21 day trip to Israel, Jordan, Egypt, Greece and Turkey.</li>
+      <li>See Museums - September 1-14 <br />
+      make a 14 day tour of 5 great museums in London, Paris, Athens, Cairo and Jerusalem</li>
+    </ul> 
+    <!-- Display 3 images: CHANGE THE SRC, TITLE, AND ALT, ANIMATE FOR BONUS POINTS-->
+    <img id="myImage" src="images/hobbieGuitarW256.jpg" title="Listen on Myspace!"
+       alt="High School Senior Photo" onclick="changeImage()">
+    <br>
+    <button onclick="changeImage()">Change Image</button>
+<!-- JS to alternate images -->
+<script>
+function changeImage() {
+    var image = document.getElementById('myImage');
+    if (image.src.match("hobbie")) {
+        image.src = "images/hometownFolks_W300_H169.jpg";
+    } else if (image.src.match("hometown")){
+        image.src = "images/waltonFamilyW256H345.jpg";
+    } else {
+    	image.src = "images/hobbieGuitarW256.jpg";
+    }
+}
+</script>
+
+<!-- About Page: image and text: WATCH OUT FOR HREFS, SRC, AND ALTS HERE TOO -->
+<h2>ABOUT PAGE MATERIAL STARTS HERE</h2>
+<img src="images/hobbieGuitarW256.jpg" title="Listen on Myspace!"
+       alt="High School Senior Photo">
+<!-- ABOUT PARAGRAPH WILL NEED TO BE EDITED -->
+<p>North Travels is a travel company that specializes in tours to the Holy Lands.  
+They usually sponsor three trips each year.  They say, "Once you have visited the Holy 
+Lands you will never hear a sermon, sing a song, listen to a Bible class lesson or read 
+the scriptures in the same way."
+You can have a great life experience visiting the Holy Lands. You can walk up steps that 
+Jesus walked up, you can walk on the roads that Paul walked on, and you can see sites that 
+Moses saw.  It will be an experience you will never forget.
+</p>
+
+<!-- Tour Page: Tour name displayed, image and additional info appears (accordion) when clicked -->
+<h3>TOURS MATERIAL STARTS HERE</h3>
+
+<!-- Accordion button information -->
+<button class="accordion">See Israel</button>
+<div class="panel">
+  <p title = "Walk where Jesus walked!">
+    On this 9 day trip to Israel you will visit the best biblical sites in Israel.  They include Jerusalem, Capernaum, Caesarea, Mt. Carmel, Megiddo, Masada, and Bethlehem, Jordan River and the Sea of Galilee.</p>
+    <img src="images/david_bev_jerusalem.jpg" width="150" height="112">
+</div>
+
+<button class="accordion">See Holy Lands</button>
+<div class="panel">
+  <p title="Awe-inspiring sites!">
+    On this 21 day trip to Israel, Jordan, Egypt, Greece and Turkey you will see the greatest sites related to Biblical history including the Temple Mount in Jerusalem, Petra in Jordan, the Pyramids in Egypt, Ephesus in Turkey and the Acropolis in Athens.</p>
+    <img src="images/greece_300_225.jpg" width="150" height="112">
+</div>
+
+<button class="accordion">See Museums</button>
+<div class="panel">
+  <p title="Awesome Museums!"> 
+In the British Museum you will see the Rosetta Stone, the Elgin Marbles, Lachish freeze, and the Cyrus cylinder.  In the Louvre you will see the Code of Hammurabi, the Moabite stone and glazed brick walls from the palace of Susa.  In Athens you will see many remains from the Acropolis.  
+In the Cairo Museum you will see the treasures of King Tut and the Merneptah Steele.  In the Israel Museum you will see the oldest written scriptures and the Tel Dan inscription with King David's name on it.</p>
+<img src="images/british_museum_300_225.jpg" width="150" height="112">
+</div>
+<!-- JS that controls the opening of the accordion buttons -->
+<script>
+var accordion = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < accordion.length; i++) {
+    accordion[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+    }
+}
+</script>
+
+<!-- Request Info Page: This page has a lot of JS to it -->
+<h2>REQUEST INFO STARTS HERE</h2>
+<!-- Name text field -->
+<form name="validation" onsubmit="return checkbae()">
+  <fieldset>
+    <legend>Personal information:</legend>
+    Name:<br>
+    <input type="text" name="name" required>
+    <br>
+    Email:<br>
+    <input type="text" name="emailcheck" required>
+    <br>
+    Desired Tour: <br>
+	<select>
+      <option value="See Israel">See Israel</option>
+      <option value="See Holy Lands">See Holy Lands</option>
+      <option value="See Museums">See Museums</option>
+    </select>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+<!-- email text field -->
+<script>
+var testresults
+function checkemail(){
+var str=document.validation.emailcheck.value
+var filter=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+if (filter.test(str)) {
+    alert("Thank you");
+	testresults=true
+} else{
+    alert("Please input a valid email address!")
+    testresults=false
+}
+return (testresults)
+}
+
+function checkbae(){
+if (document.layers||document.getElementById||document.all) {
+return checkemail()
+} else {
+    return true
+    }
+}
+</script>
+</body>
+
+
+<!-- END INDIVIDUAL PAGE MATERIAL -->
+
+<!-- Common Footer for all pages: NOTE THE HREF -->
+<footer>Contact North Travels at <a href="mailto:info@northtravels.com">info@northtravels.com</a></footer>
+</html>

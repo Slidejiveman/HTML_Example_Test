@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Home</title>
+<link rel="stylesheet" type="text/css" href="exampleStyle.css">
+</head>
+<div class="header">
+<ul class="menu">
+    <li class = "menu"><a class="active" href="index.html">Home Page</a></li>
+    <li class = "menu"><a href="about.html">About</a></li>
+    <li class = "menu"><a href="tours.html">Tours</a></li>
+    <li class = "menu"><a href="request.html">Request Info</a></li>
+</ul>
+</div>
+<body>
+<br><br>
+<h1>North Travels</h1>
+
+
+<p>
+"Once you have visited the Holy Lands you will never hear a sermon, sing a song, listen to a Bible class lesson or read the scriptures in the same way."</p>
+
+
+
+<img id="myImage" src="images/greece_300_225.jpg" alt="Parthenon on the Acropolis in Athens.">
+<!-- 
+<img id="myImage" src="images/david_bev_cammel_300_225.jpg" alt="David and Beverly on a cammel at the pyramids in Cairo.">
+<img id="myImage" src="images/david_bev_jerusalem.jpg" alt="David and Beverly in Jerusalem looking over the temple mount">
+-->
+<br>
+<button onclick="changeImage()">Change Image</button>
+<script>
+function changeImage() {
+    var image = document.getElementById('myImage');
+    if (image.src.match("greece")) {
+        image.src = "images/david_bev_cammel_300_225.jpg";
+    } else if (image.src.match("cammel")){
+        image.src = "images/david_bev_jerusalem.jpg";
+    } else {
+    	image.src = "images/greece_300_225.jpg";
+    }
+}
+</script>
+
+<div class="index">
+<p style="text-align:left">
+You can have a great life experience visiting the Holy Lands. You can walk up steps that Jesus walked on, you can walk on the roads that Paul walked on, and you can see sites that Moses saw.  It will be an experience you will never forget. We are talking these trips this year:</p>
+  <ul style="text-align:left">
+      <li>See Irael - April 15-23    <!-- Might want to think of other ways to describe -->
+      make a 9 day trip to Israel. </li>
+      <li>See Holy Lands - June 1-22
+     make a 21 day trip to Israel, Jordan, Egypt, Greece and Turkey.</li>
+      <li>See Museums - September 1-14
+      make a 14 day tour of 5 great museums in London, Paris, Athens, Cairo and Jerusalem</li>
+  </ul> 
+</div>
+
+
+</body>
+<!-- Common Footer for all pages: NOTE THE HREF -->
+<footer>Contact North Travels at <a href="mailto:info@northtravels.com">info@northtravels.com</a></footer>
+</html>
+</html>
